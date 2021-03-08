@@ -1,0 +1,312 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11475,        304]
+NotebookOptionsPosition[     10208,        278]
+NotebookOutlinePosition[     10639,        295]
+CellTagsIndexPosition[     10596,        292]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Get", "[", "\"\<cryptanalysis.ma\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"message", "=", 
+   RowBox[{"Import", "[", "\"\<http://www.repubblica.it\>\"", "]"}]}], ";", 
+  RowBox[{"XN", "=", 
+   RowBox[{"TextCode", "[", "message", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Italian", "=", 
+   RowBox[{"Import", "[", "\"\<http://www.corriere.it\>\"", "]"}]}], ";", 
+  RowBox[{"XN2", "=", 
+   RowBox[{"TextCode", "[", "Italian", "]"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"English", "=", 
+    RowBox[{"Import", "[", "\"\<http://www.nytimes.com\>\"", "]"}]}], ";", 
+   RowBox[{"XN3", "=", 
+    RowBox[{"TextCode", "[", "English", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"pita", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"N", "@", 
+      RowBox[{"Count", "[", 
+       RowBox[{"XN2", ",", "i"}], "]"}]}], "/", 
+     RowBox[{"Length", "[", "XN2", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "0", ",", "25"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"peng", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"N", "@", 
+       RowBox[{"Count", "[", 
+        RowBox[{"XN3", ",", "i"}], "]"}]}], "/", 
+      RowBox[{"Length", "[", "XN3", "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "0", ",", "25"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"X4", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"RandomInteger", "[", "25", "]"}], ",", 
+     RowBox[{"{", "4000", "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.824224191737595*^9, 3.824224213680977*^9}, {
+  3.82422426174161*^9, 3.824224388252945*^9}},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"a8fb930c-40c0-45bd-9e79-3e44787b414d"],
+
+Cell[BoxData[{"IcITA", "\[IndentingNewLine]", "IcENG"}], "Input",
+ CellChangeTimes->{{3.824224630057622*^9, 3.8242246387401333`*^9}},
+ CellLabel->
+  "In[407]:=",ExpressionUUID->"be6f81dd-b786-468f-bd03-90bd07dd1e7a"],
+
+Cell[BoxData[{
+ RowBox[{"maxlen", "=", 
+  RowBox[{"Min", "@@", 
+   RowBox[{"Map", "[", 
+    RowBox[{"Length", ",", 
+     RowBox[{"{", 
+      RowBox[{"XN", ",", "XN2", ",", "XN3", ",", "X4"}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"table", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"CoincidenceIndex", "[", 
+          RowBox[{"Take", "[", 
+           RowBox[{"XN", ",", "i"}], "]"}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"CoincidenceIndex", "[", 
+          RowBox[{"Take", "[", 
+           RowBox[{"XN2", ",", "i"}], "]"}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"CoincidenceIndex", "[", 
+          RowBox[{"Take", "[", 
+           RowBox[{"XN3", ",", "i"}], "]"}], "]"}]}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"CoincidenceIndex", "[", 
+          RowBox[{"Take", "[", 
+           RowBox[{"X4", ",", "i"}], "]"}], "]"}]}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "10", ",", "400"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ListLinePlot", "[", 
+   RowBox[{
+    RowBox[{"Transpose", "[", "table", "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], "]"}], "]"}], "]"}],
+   "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.824224191737595*^9, 3.824224213680977*^9}, {
+  3.82422426174161*^9, 3.824224388252945*^9}, {3.8242244192589283`*^9, 
+  3.824224423893461*^9}},
+ CellLabel->
+  "In[425]:=",ExpressionUUID->"79fa5a68-c094-41ba-8b74-06bf8983e62d"],
+
+Cell[BoxData[{
+ RowBox[{"key", "=", "15"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"YN", "=", 
+   RowBox[{"TextEncryption", "[", 
+    RowBox[{"ShiftEncode", ",", "key", ",", "XN"}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.824224191737595*^9, 3.824224213680977*^9}, {
+  3.82422426174161*^9, 3.824224388252945*^9}, {3.8242244192589283`*^9, 
+  3.824224423893461*^9}},
+ CellLabel->
+  "In[385]:=",ExpressionUUID->"033a1f1b-dd80-437b-8c18-2b8bfb2dc54a"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.823006168766328*^9, 3.823006195734837*^9}, 
+   3.823660727093066*^9, {3.8236608541751013`*^9, 3.823660855758321*^9}, {
+   3.823661078768228*^9, 3.823661084096334*^9}, {3.824215126799356*^9, 
+   3.8242151691136723`*^9}, 3.824224247387908*^9, 3.824224441614045*^9, {
+   3.824224677191647*^9, 3.8242246798324347`*^9}, 
+   3.824224908080719*^9},ExpressionUUID->"a005eec9-185e-4086-8110-\
+bb966fd588d0"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.823006364318995*^9, 3.823006367448004*^9}, {
+   3.823609106850788*^9, 3.823609111641735*^9}, {3.823609776333477*^9, 
+   3.823609776523143*^9}, {3.8236606277438307`*^9, 3.8236606921096783`*^9}, 
+   3.823660742402965*^9, {3.824212417939698*^9, 3.824212441078734*^9}, 
+   3.824224299665698*^9},ExpressionUUID->"40b11eea-8c97-477f-b55a-\
+ec8715314375"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"MI", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"MutualCoincidenceIndex", "[", 
+      RowBox[{
+       RowBox[{"TextDecryption", "[", 
+        RowBox[{"ShiftDecode", ",", "key", ",", "YN"}], "]"}], ",", "pita"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"key", ",", " ", "0", ",", " ", "25"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"keyguess", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Position", "[", 
+     RowBox[{"MI", ",", 
+      RowBox[{"Max", "@", "MI"}]}], "]"}], "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "1"}], "]"}], "]"}], "-", 
+   "1"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"MI", "[", 
+   RowBox[{"[", 
+    RowBox[{"keyguess", "+", "1"}], "]"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Histogram", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"TextEncryption", "[", 
+          RowBox[{"ShiftEncode", ",", "guesskey", ",", "XN2"}], "]"}], ",", 
+         "YN"}], "}"}], ",", "26", ",", "\"\<Probability\>\"", ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"MutualCoincidenceIndex", "[", 
+      RowBox[{
+       RowBox[{"TextDecryption", "[", 
+        RowBox[{"ShiftDecode", ",", "guesskey", ",", "YN"}], "]"}], ",", 
+       "pita"}], "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"guesskey", ",", "keyguess"}], "}"}], ",", "0", ",", "25", ",", 
+     "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.82422475370299*^9, 3.824224930523986*^9}, {
+  3.8242250426999493`*^9, 
+  3.8242250531398373`*^9}},ExpressionUUID->"c497639b-20db-4bfe-a099-\
+7c5a3c6b1ecb"],
+
+Cell[BoxData["15"], "Output",
+ CellChangeTimes->{3.824225046345621*^9},
+ CellLabel->
+  "Out[429]=",ExpressionUUID->"f19b6c6b-6d67-4050-b57e-65ccb33aa958"],
+
+Cell[BoxData["0.07506539391314353`"], "Output",
+ CellChangeTimes->{3.824225046347403*^9},
+ CellLabel->
+  "Out[430]=",ExpressionUUID->"d8b0d3e2-8ac1-418f-a669-5164849abb4c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`guesskey$$ = 15, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`guesskey$$], 15}, 0, 25, 1}}, Typeset`size$$ = {
+    1349., {346., 356.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`guesskey$$ = 15}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> {
+        Histogram[{
+          $CellContext`TextEncryption[$CellContext`ShiftEncode, \
+$CellContext`guesskey$$, $CellContext`XN2], $CellContext`YN}, 26, 
+         "Probability", ImageSize -> Large], 
+        $CellContext`MutualCoincidenceIndex[
+         $CellContext`TextDecryption[$CellContext`ShiftDecode, \
+$CellContext`guesskey$$, $CellContext`YN], $CellContext`pita]}, 
+      "Specifications" :> {{{$CellContext`guesskey$$, 15}, 0, 25, 1}}, 
+      "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{1433., {422., 434.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.824225046351832*^9},
+ CellLabel->
+  "Out[431]=",ExpressionUUID->"35afa3f7-6e7c-4842-a775-4084701f2d8d"]
+}, Open  ]]
+},
+WindowSize->{2990, 1898},
+WindowMargins->{{Automatic, 2418}, {185, Automatic}},
+Magnification:>2. Inherited,
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"945b5e30-365a-44d7-8132-ebf05e501588"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2003, 56, 492, "Input",ExpressionUUID->"a8fb930c-40c0-45bd-9e79-3e44787b414d"],
+Cell[2564, 78, 216, 3, 123, "Input",ExpressionUUID->"be6f81dd-b786-468f-bd03-90bd07dd1e7a"],
+Cell[2783, 83, 1878, 52, 410, "Input",ExpressionUUID->"79fa5a68-c094-41ba-8b74-06bf8983e62d"],
+Cell[4664, 137, 463, 11, 123, "Input",ExpressionUUID->"033a1f1b-dd80-437b-8c18-2b8bfb2dc54a"],
+Cell[5130, 150, 447, 7, 59, "Input",ExpressionUUID->"a005eec9-185e-4086-8110-bb966fd588d0"],
+Cell[5580, 159, 397, 6, 59, "Input",ExpressionUUID->"40b11eea-8c97-477f-b55a-ec8715314375"],
+Cell[CellGroupData[{
+Cell[6002, 169, 1905, 54, 429, "Input",ExpressionUUID->"c497639b-20db-4bfe-a099-7c5a3c6b1ecb"],
+Cell[7910, 225, 154, 3, 89, "Output",ExpressionUUID->"f19b6c6b-6d67-4050-b57e-65ccb33aa958"],
+Cell[8067, 230, 172, 3, 89, "Output",ExpressionUUID->"d8b0d3e2-8ac1-418f-a669-5164849abb4c"],
+Cell[8242, 235, 1950, 40, 914, "Output",ExpressionUUID->"35afa3f7-6e7c-4842-a775-4084701f2d8d"]
+}, Open  ]]
+}
+]
+*)
+
