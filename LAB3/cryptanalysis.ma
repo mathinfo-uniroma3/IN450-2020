@@ -18,9 +18,6 @@ LanguageCoincidenceIndex[distribution_]:= Plus@@(distribution^2)
 IcITA=LanguageCoincidenceIndex@pita;
 IcENG=LanguageCoincidenceIndex@peng;
 
-
-
-
 CoincidenceIndex[textcode_] :=
  N[Plus @@
     Map[#[[2]] (#[[2]] - 1) &,
@@ -33,7 +30,6 @@ MutualCoincidenceIndex[textcode_, distribution_] := Plus @@ Table[
 m = 26
 ShiftEncode[x_, k_] := Mod[x + k, m];
 ShiftDecode[x_, k_] := ShiftEncode[x, -k];
-
 
 TextEncryption[encryptionfunction_, key_, text_] :=
  Module[{encoding},
@@ -48,4 +44,3 @@ TextDecryption[decryptionfunction_, key_, text_] :=
        encoding[x_] := decryptionfunction[x, key];
        Map[encoding, text]
    )]
-

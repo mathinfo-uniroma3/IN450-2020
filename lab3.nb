@@ -1,0 +1,858 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     36748,        848]
+NotebookOptionsPosition[     34419,        802]
+NotebookOutlinePosition[     34815,        818]
+CellTagsIndexPosition[     34772,        815]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Encrypt", "[", 
+  RowBox[{"\"\<ciao\>\"", ",", "\"\<AES\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.824195042873856*^9, 3.824195057897408*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"a89eb1ca-80a1-4c9b-b20b-69dbe557cec5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["EncryptedObject",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ2/jQ7WYBgQf26PTWo6Z2k/8+sn91xlalJv+NfdyN
+WWv3pLwdMPFHJ/PSvig/xaBJNQeXf3svWq2apXDHft0HPfGPsg/sZTesPhl8
+7THJ4rjsxaWeVPeQqh5XuOGicZmPi8ZlDqnhRqq91HIPqeFDaryT6k5qhQOp
++YLUeKFWvFMrnKmV3ki1d7C5n1T3AABn1y3Q
+              "], {{0, 0}, {8, 8}}, {0, 
+              1}], Frame -> None, FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Data length: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"16", "\"B\"", "bytes", "\"Bytes\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Original form: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["String", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"IV length: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"128", "\"b\"", "bits", "\"Bits\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ2/jQ7WYBgQf26PTWo6Z2k/8+sn91xlalJv+NfdyN
+WWv3pLwdMPFHJ/PSvig/xaBJNQeXf3svWq2apXDHft0HPfGPsg/sZTesPhl8
+7THJ4rjsxaWeVPeQqh5XuOGicZmPi8ZlDqnhRqq91HIPqeFDaryT6k5qhQOp
++YLUeKFWvFMrnKmV3ki1d7C5n1T3AABn1y3Q
+              "], {{0, 0}, {8, 8}}, {0, 
+              1}], Frame -> None, FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Data length: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"16", "\"B\"", "bytes", "\"Bytes\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Original form: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["String", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"IV length: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"128", "\"b\"", "bits", "\"Bits\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  EncryptedObject[
+   Association[
+   "Data" -> ByteArray[{185, 155, 255, 210, 0, 125, 158, 120, 48, 114, 181, 
+      116, 89, 198, 91, 36}], "InitializationVector" -> 
+    ByteArray[{92, 208, 223, 238, 96, 182, 1, 1, 234, 18, 203, 129, 132, 64, 
+      215, 8}], "Padding" -> Automatic, "OriginalForm" -> String]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.824195060620582*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"fb91ccf3-8307-41ad-b503-71bd8c9492b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Encrypt"}]], "Input",
+ CellChangeTimes->{{3.824195069173237*^9, 3.824195071612816*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"895d5505-0fdf-48b4-8c50-0067b54838b4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = False, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"]], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"]]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Encrypt",
+              ButtonNote->"paclet:ref/Encrypt"],
+             "\"paclet:ref/Encrypt\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"\\\\\\\"\\\\!\\\\(\\\\*StyleBox[\\\\\\\"password\\\\\\\",\
+\\\\\\\"TI\\\\\\\"]\\\\)\\\\\\\"\\\", ShowStringCharacters->True], \\\",\\\", \
+StyleBox[\\\"expr\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) encrypts \
+\\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\) using the specified password, \
+to give an encrypted object.\\n\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"keyspec\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"expr\\\
+\", \\\"TI\\\"]}], \\\"]\\\"}]\\) encrypts \\!\\(\\*StyleBox[\\\"expr\\\", \\\
+\"TI\\\"]\\) using the cryptographic key specification \
+\\!\\(\\*StyleBox[\\\"keyspec\\\", \
+\\\"TI\\\"]\\).\\n\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\"]\\\"}]\\) interactively requests a \
+password with which to encrypt \\!\\(\\*StyleBox[\\\"expr\\\", \
+\\\"TI\\\"]\\).\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Documentation\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Documentation\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Documentation", "Tooltip"]& ], 
+                   TemplateBox[{
+                    
+                    TemplateBox[{
+                    "\"Local \[RightGuillemet]\"", "paclet:ref/Encrypt", 
+                    "paclet:ref/Encrypt", "Link", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"], "\"  \"", 
+                    StyleBox[
+                    "\"|\"", "InformationRowLabel", StripOnInput -> False], 
+                    "\"  \"", 
+                    TemplateBox[{"\"Web \[RightGuillemet]\"", {
+                    URL[
+                    "http://reference.wolfram.com/language/ref/Encrypt.html"],
+                     None}, 
+                    "http://reference.wolfram.com/language/ref/Encrypt.html", 
+                    "Hyperlink", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"]},
+                    "RowDefault"]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Options\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Options\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Options", "Tooltip"]& ], 
+                   RowBox[{"Method", "\[Rule]", "Automatic"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Attributes\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Attributes\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Attributes", "Tooltip"]& ], 
+                   RowBox[{"{", 
+                    RowBox[{"Protected", ",", "ReadProtected"}], "}"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"System`Encrypt\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->{{6, 6}, {6, 3}}], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox["\<\" Symbol\"\>", "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"],
+                ImageSizeCache->{13., {4., 9.}}], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"],
+                ImageSizeCache->{13., {4., 9.}}]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Encrypt",
+              ButtonNote->"paclet:ref/Encrypt"],
+             "\"paclet:ref/Encrypt\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"\\\\\\\"\\\\!\\\\(\\\\*StyleBox[\\\\\\\"password\\\\\\\",\
+\\\\\\\"TI\\\\\\\"]\\\\)\\\\\\\"\\\", ShowStringCharacters->True], \\\",\\\", \
+StyleBox[\\\"expr\\\", \\\"TI\\\"]}], \\\"]\\\"}]\\) encrypts \
+\\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\) using the specified password, \
+to give an encrypted object.\\n\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"keyspec\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"expr\\\
+\", \\\"TI\\\"]}], \\\"]\\\"}]\\) encrypts \\!\\(\\*StyleBox[\\\"expr\\\", \\\
+\"TI\\\"]\\) using the cryptographic key specification \
+\\!\\(\\*StyleBox[\\\"keyspec\\\", \
+\\\"TI\\\"]\\).\\n\\!\\(\\*RowBox[{\\\"Encrypt\\\", \\\"[\\\", \
+StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\"]\\\"}]\\) interactively requests a \
+password with which to encrypt \\!\\(\\*StyleBox[\\\"expr\\\", \
+\\\"TI\\\"]\\).\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"],
+               ImageSizeCache->{10., {2., 8.}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"],
+               ImageSizeCache->{10., {2., 8.}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[
+   Association[
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "\!\(\*RowBox[{\"Encrypt\", \"[\", \
+RowBox[{StyleBox[\"\\\"\\!\\(\\*StyleBox[\\\"password\\\",\\\"TI\\\"]\\)\\\"\"\
+, ShowStringCharacters->True], \",\", StyleBox[\"expr\", \"TI\"]}], \"]\"}]\) \
+encrypts \!\(\*StyleBox[\"expr\", \"TI\"]\) using the specified password, to \
+give an encrypted object.\n\!\(\*RowBox[{\"Encrypt\", \"[\", \
+RowBox[{StyleBox[\"keyspec\", \"TI\"], \",\", StyleBox[\"expr\", \"TI\"]}], \
+\"]\"}]\) encrypts \!\(\*StyleBox[\"expr\", \"TI\"]\) using the cryptographic \
+key specification \!\(\*StyleBox[\"keyspec\", \"TI\"]\).\n\
+\!\(\*RowBox[{\"Encrypt\", \"[\", StyleBox[\"expr\", \"TI\"], \"]\"}]\) \
+interactively requests a password with which to encrypt \!\(\*StyleBox[\"expr\
+\", \"TI\"]\).", "Documentation" -> 
+    Association[
+     "Local" -> "paclet:ref/Encrypt", "Web" -> 
+      "http://reference.wolfram.com/language/ref/Encrypt.html"], "OwnValues" -> 
+    None, "UpValues" -> None, "DownValues" -> None, "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> {Method -> Automatic}, 
+    "Attributes" -> {Protected, ReadProtected}, "FullName" -> 
+    "System`Encrypt"], False]]], "Output",
+ CellChangeTimes->{3.824195073109033*^9},
+ CellLabel->"Out[2]=",ExpressionUUID->"ab3e67c8-98c6-4b64-8061-375b071d4f98"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"key", "=", 
+  RowBox[{"GenerateSymmetricKey", "[", 
+   RowBox[{"Method", "\[Rule]", 
+    RowBox[{"<|", 
+     RowBox[{"\"\<BlockMode\>\"", "\[Rule]", "\"\<ECB\>\""}], "|>"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.8241951451209517`*^9, 3.824195149898903*^9}, {
+  3.8241951881682873`*^9, 3.824195198781376*^9}, {3.824195233365222*^9, 
+  3.824195243325391*^9}, {3.824195297782316*^9, 3.824195316183261*^9}, {
+  3.824195397177272*^9, 3.824195414617509*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"fa8e7b64-1c24-4b93-8547-e2bbc17f3b87"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "GenerateSymmetricKey", "nocipher", "\"No cipher given.\"", 2, 7, 3, 
+   19916238904963076912, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.82419530005599*^9, 3.824195316893753*^9}, 
+   3.824195416716194*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"bdb0cfde-ccab-4de3-8e6d-ed4edba4aec7"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"key", "=", 
+  RowBox[{"GenerateSymmetricKey", "[", 
+   RowBox[{"Method", "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\"\<Cipher\>\"", "\[Rule]", "\"\<AES256\>\""}], ",", 
+      RowBox[{"\"\<BlockMode\>\"", "\[Rule]", "\"\<ECB\>\""}]}], 
+     "\[RightAssociation]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8241954314551*^9, 3.824195470589703*^9}, {
+  3.824195574190549*^9, 3.8241956435544043`*^9}, {3.824195674076091*^9, 
+  3.8241956871502028`*^9}, {3.824195766979385*^9, 
+  3.824195829785466*^9}},ExpressionUUID->"63b66ea3-3330-4039-931a-\
+607a24a3e73e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"image", "=", 
+    RowBox[{
+    "Import", "[", 
+     "\"\<https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/\
+2000px-Tux.svg.png\>\"", "]"}]}], ";"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8241954314551*^9, 3.824195470589703*^9}, {
+  3.824195574190549*^9, 3.8241956435544043`*^9}, {3.824195674076091*^9, 
+  3.8241956871502028`*^9}, {3.824195766979385*^9, 3.82419584754994*^9}},
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"e8fa8917-b308-4d62-a3a4-9df941b6ca09"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"ImageData", "[", 
+    RowBox[{"image", ",", "\"\<Byte\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.824199523347128*^9, 3.824199559735023*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"2c9480c1-3b0e-4e21-ac84-d9e844c1e97c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{{3.8241954314551*^9, 3.824195470589703*^9}, {
+  3.824195574190549*^9, 3.8241956435544043`*^9}, {3.824195674076091*^9, 
+  3.8241956871502028`*^9}, {3.824195766979385*^9, 3.824195851377447*^9}, {
+  3.824197051816971*^9, 3.824197172280304*^9}, {3.824197424686282*^9, 
+  3.824197446515893*^9}, {3.824197488879081*^9, 3.824197554203219*^9}, {
+  3.824199469803485*^9, 
+  3.8241994863360653`*^9}},ExpressionUUID->"803b37e0-e87f-421c-a59a-\
+ca75b6ac435b"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{
+  3.8241970831819267`*^9, {3.824197116132205*^9, 3.824197178038179*^9}, {
+   3.824197431468237*^9, 3.824197451608014*^9}, {3.824197497919108*^9, 
+   3.82419750814744*^9}, 3.824199163193562*^9, 3.824199489824781*^9},
+ CellLabel->
+  "Out[101]=",ExpressionUUID->"a01d280d-9e53-4c41-96b8-cf477cc89f93"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Dimensions", "[", "data", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Dimensions", "[", 
+  RowBox[{"edata", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.82419730808622*^9, 3.82419731215415*^9}, {
+  3.824197451577615*^9, 3.824197466915415*^9}},
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"8bdc5e4f-ed3f-43a4-92e4-8618600c766d"],
+
+Cell[BoxData[
+ RowBox[{"{", "18944000", "}"}]], "Output",
+ CellChangeTimes->{
+  3.824197312490447*^9, {3.824197431555902*^9, 3.8241974672722807`*^9}, 
+   3.824199516125064*^9},
+ CellLabel->
+  "Out[102]=",ExpressionUUID->"dabc92c6-786d-4f52-8419-a95c9618be98"],
+
+Cell[BoxData[
+ RowBox[{"{", "2644240", "}"}]], "Output",
+ CellChangeTimes->{
+  3.824197312490447*^9, {3.824197431555902*^9, 3.8241974672722807`*^9}, 
+   3.824199516126573*^9},
+ CellLabel->
+  "Out[103]=",ExpressionUUID->"baf88e2e-97d3-4869-8802-efbecd1c90cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Length", "@", 
+  RowBox[{"Partition", "[", 
+   RowBox[{
+    RowBox[{"Partition", "[", 
+     RowBox[{
+      RowBox[{"Normal", "[", 
+       RowBox[{
+        RowBox[{"edata", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "4"}], "]"}], ",", 
+    "2000"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.824197178098949*^9, 3.824197273857621*^9}, {
+  3.824197322441102*^9, 3.824197404521318*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"e6dfd57d-444c-48c6-a139-7709c7171fb1"],
+
+Cell[BoxData["320"], "Output",
+ CellChangeTimes->{{3.824197181549863*^9, 3.824197274151216*^9}, 
+   3.8241973400888653`*^9, {3.824197373277524*^9, 3.82419740508243*^9}},
+ CellLabel->"Out[74]=",ExpressionUUID->"cb74feb9-c444-4c77-93a8-cedbd37e3664"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.824195872392502*^9, 
+  3.824195873393358*^9}},ExpressionUUID->"baddff76-b31f-4156-af0a-\
+d1c6accc9ed5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Encrypt", "[", 
+   RowBox[{"key", ",", "image"}], "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.8241954314551*^9, 3.824195470589703*^9}, {
+  3.824195574190549*^9, 3.8241956435544043`*^9}, {3.824195674076091*^9, 
+  3.8241956871502028`*^9}, {3.824195766979385*^9, 
+  3.8241957812043858`*^9}},ExpressionUUID->"fc1e3302-e307-4407-9cbb-\
+2d838cda3f29"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["SymmetricKey",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ++6MeRuOMF+zjwibNaUp777958lZ8/uOv7GXb30d
+uEPurb26Iccamagr9ltOlO2bL3Uepzip5tTs4U5mVnhlv8vSV+uV4EX7Hd3N
+CfNf3cApjsscruuLC2y53tuDhVMe2yvf/lmXtWcLTnNwqSfVfGr5i1R3kho+
+uOKFWuaQ6k5S3YNLPaniA+UvauULUtMhqf6idT4l1Z2kup/UdEUtf5GaHqhV
+zlArXwMAIoTueQ==
+              "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Cipher: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"AES256\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Block mode: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"ECB\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Key size: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"256", "\"b\"", "bits", "\"Bits\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            GraphicsBox[
+             RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDggGIQ++6MeRuOMF+zjwibNaUp777958lZ8/uOv7GXb30d
+uEPurb26Iccamagr9ltOlO2bL3Uepzip5tTs4U5mVnhlv8vSV+uV4EX7Hd3N
+CfNf3cApjsscruuLC2y53tuDhVMe2yvf/lmXtWcLTnNwqSfVfGr5i1R3kho+
+uOKFWuaQ6k5S3YNLPaniA+UvauULUtMhqf6idT4l1Z2kup/UdEUtf5GaHqhV
+zlArXwMAIoTueQ==
+              "], {{0, 0}, {8, 8}}, {0, 1}], Frame -> None, 
+             FrameLabel -> {None, None}, 
+             FrameTicks -> {{None, None}, {None, None}}, GridLinesStyle -> 
+             Directive[
+               GrayLevel[0.5, 0.4]], ImageSize -> 
+             Dynamic[{Automatic, 3.5 CurrentValue["FontCapHeight"]}], 
+             Method -> {
+              "DefaultBoundaryStyle" -> Automatic, 
+               "DefaultGraphicsInteraction" -> {
+                "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+                 "Effects" -> {
+                  "Highlight" -> {"ratio" -> 2}, 
+                   "HighlightPoint" -> {"ratio" -> 2}, 
+                   "Droplines" -> {
+                    "freeformCursorMode" -> True, 
+                    "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+               "DefaultPlotStyle" -> Automatic}, PlotRangePadding -> None], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Cipher: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"AES256\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Block mode: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["\"ECB\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Key size: \"", "SummaryItemAnnotation"], 
+                 "\[InvisibleSpace]", 
+                 TagBox[
+                  
+                  TemplateBox[{"256", "\"b\"", "bits", "\"Bits\""}, 
+                   "Quantity", SyntaxForm -> Mod], "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  SymmetricKey[
+   Association[
+   "Cipher" -> "AES256", "BlockMode" -> "ECB", "Key" -> 
+    ByteArray[{245, 81, 91, 47, 98, 170, 245, 114, 156, 157, 255, 65, 129, 
+      200, 172, 7, 30, 217, 238, 230, 186, 48, 68, 98, 22, 119, 73, 143, 116, 
+      141, 39, 209}], "KeySize" -> 256, "InitializationVector" -> None]],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.8241954471760883`*^9, 3.8241954552229633`*^9}, {
+   3.824195575995133*^9, 3.824195597577711*^9}, {3.824195632388628*^9, 
+   3.82419564416514*^9}, {3.824195676447822*^9, 3.82419569628373*^9}, 
+   3.8241957725064573`*^9},
+ CellLabel->"Out[35]=",ExpressionUUID->"9bbfbe15-cf57-4cf9-8113-f8a2dc63b78e"]
+}, Open  ]]
+},
+WindowSize->{1695, 915},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.2 for Mac OS X x86 (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d2e588d5-05b8-434b-8c4c-4e64a4e9e5cd"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 248, 4, 30, "Input",ExpressionUUID->"a89eb1ca-80a1-4c9b-b20b-69dbe557cec5"],
+Cell[831, 28, 6395, 132, 85, "Output",ExpressionUUID->"fb91ccf3-8307-41ad-b503-71bd8c9492b7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7263, 165, 194, 3, 30, "Input",ExpressionUUID->"895d5505-0fdf-48b4-8c50-0067b54838b4"],
+Cell[7460, 170, 14585, 334, 143, "Output",ExpressionUUID->"ab3e67c8-98c6-4b64-8061-375b071d4f98"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22082, 509, 563, 11, 30, "Input",ExpressionUUID->"fa8e7b64-1c24-4b93-8547-e2bbc17f3b87"],
+Cell[22648, 522, 371, 9, 24, "Message",ExpressionUUID->"bdb0cfde-ccab-4de3-8e6d-ed4edba4aec7"]
+}, Open  ]],
+Cell[23034, 534, 615, 13, 30, InheritFromParent,ExpressionUUID->"63b66ea3-3330-4039-931a-607a24a3e73e"],
+Cell[23652, 549, 541, 12, 52, InheritFromParent,ExpressionUUID->"e8fa8917-b308-4d62-a3a4-9df941b6ca09"],
+Cell[24196, 563, 296, 7, 30, "Input",ExpressionUUID->"2c9480c1-3b0e-4e21-ac84-d9e844c1e97c"],
+Cell[CellGroupData[{
+Cell[24517, 574, 512, 8, 52, InheritFromParent,ExpressionUUID->"803b37e0-e87f-421c-a59a-ca75b6ac435b"],
+Cell[25032, 584, 354, 6, 34, "Output",ExpressionUUID->"a01d280d-9e53-4c41-96b8-cf477cc89f93"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25423, 595, 409, 9, 52, "Input",ExpressionUUID->"8bdc5e4f-ed3f-43a4-92e4-8618600c766d"],
+Cell[25835, 606, 259, 6, 82, "Output",ExpressionUUID->"dabc92c6-786d-4f52-8419-a95c9618be98"],
+Cell[26097, 614, 258, 6, 34, "Output",ExpressionUUID->"baf88e2e-97d3-4869-8802-efbecd1c90cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26392, 625, 547, 14, 30, "Input",ExpressionUUID->"e6dfd57d-444c-48c6-a139-7709c7171fb1"],
+Cell[26942, 641, 248, 3, 34, "Output",ExpressionUUID->"cb74feb9-c444-4c77-93a8-cedbd37e3664"]
+}, Open  ]],
+Cell[27205, 647, 350, 6, 199, "Input",ExpressionUUID->"baddff76-b31f-4156-af0a-d1c6accc9ed5"],
+Cell[CellGroupData[{
+Cell[27580, 657, 400, 8, 52, InheritFromParent,ExpressionUUID->"fc1e3302-e307-4407-9cbb-2d838cda3f29"],
+Cell[27983, 667, 6420, 132, 81, "Output",ExpressionUUID->"9bbfbe15-cf57-4cf9-8113-f8a2dc63b78e"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

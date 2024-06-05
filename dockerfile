@@ -24,4 +24,4 @@ WORKDIR /home/wolfram
 
 RUN ssh-keygen -t ECDSA -N "" -f ~/.ssh/dockerecdsa
 RUN cat ~/.ssh/dockerecdsa.pub
-
+CMD bash
